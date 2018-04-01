@@ -62,19 +62,20 @@ const user = {
     // 获取用户信息
     GetUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
-        getUserInfo(state.token).then(response => {
-          if (!response.data) { // 由于mockjs 不支持自定义状态码只能这样hack
-            reject('error')
-          }
-          const data = response.data
-          commit('SET_ROLES', data.roles)
-          commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
-          commit('SET_INTRODUCTION', data.introduction)
-          resolve(response)
-        }).catch(error => {
-          reject(error)
-        })
+        // getUserInfo(state.token).then(response => {
+        //   if (!response.data) { // 由于mockjs 不支持自定义状态码只能这样hack
+        //     reject('error')
+        //   }
+        //   const data = response.data
+          commit('SET_ROLES', ['admin'])
+          // commit('SET_NAME', data.name)
+          // commit('SET_AVATAR', data.avatar)
+          // commit('SET_INTRODUCTION', data.introduction)
+          // resolve(response)
+          resolve()
+        // }).catch(error => {
+        //   reject(error)
+        // })
       })
     },
 
